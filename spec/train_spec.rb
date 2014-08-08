@@ -9,13 +9,22 @@ describe 'Train' do
   end
 
   it 'starts with an empty array' do
-    new_train = Train.new({'name' => 'blue line'})
+    new_train = Train.new({'name' => 'blue line', 'id' => 1})
     expect(Train.all).to eq []
   end
 
   it 'saves train lines' do
-    new_train = Train.new({'name' => 'blue line'})
+    new_train = Train.new({'name' => 'blue line', 'id' => 1})
     new_train.save
     expect(Train.all).to eq [new_train]
+  end
+
+  it 'deletes train lines' do
+    new_train = Train.new({'name' => 'blue line', 'id' => 1})
+    new_train.save
+    another_new_train = Train.new({'name' => 'purple line', 'id' => 2 })
+    another_new_train.save
+    new_train.delete
+    expect(Train.all).to eq [another_new_train]
   end
 end
