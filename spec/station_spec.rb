@@ -25,4 +25,11 @@ describe 'Station' do
      new_station.edit({'name' => 'Paddington'})
      expect(new_station.name).to eq 'Paddington'
   end
+
+  it 'deletes stations' do
+     new_station = Station.new({'name' => 'Clackamas', 'id' => 2})
+     new_station.save
+     new_station.delete
+     expect(Station.all).to eq []
+   end
 end

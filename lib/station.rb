@@ -30,4 +30,8 @@ class Station
     @name = edit_info['name']
     DB.exec("UPDATE train_station SET name = '#{@name}';")
   end
+
+  def delete
+    DB.exec("DELETE FROM train_station WHERE id = #{self.id};")
+  end
 end
