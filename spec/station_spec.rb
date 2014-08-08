@@ -12,4 +12,10 @@ describe 'Station' do
     new_station = Station.new({'name' => 'Clackamas', 'id' => 2})
       expect(Station.all).to eq []
   end
+
+  it 'saves stations to an array' do
+    new_station = Station.new({'name' => 'Clackamas', 'id' => 2})
+    new_station.save
+    expect(Station.all).to eq [new_station]
+  end
 end
