@@ -32,4 +32,19 @@ describe 'Station' do
      new_station.delete
      expect(Station.all).to eq []
    end
+
+  it 'adds a train line to a station' do
+    new_station = Station.new({'name' => 'Clackamas'})
+    new_station.save
+    new_train = Train.new({'name' => 'blue line'})
+    new_train.save
+    new_station.add_line(new_train.id)
+    expect(new_station.lines).to eq [new_train]
+  end
+
+  it 'begins with an empty array to store all the lines' do
+    new_station = Station.new({'name' => 'Clackamas'})
+    new_station.save
+    expect(new_station.lines).to eq []
+  end
 end
