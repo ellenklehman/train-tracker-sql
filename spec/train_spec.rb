@@ -1,5 +1,4 @@
-require 'rspec'
-require 'train'
+require 'spec_helper'
 
 describe 'Train' do
   describe 'initialize' do
@@ -13,8 +12,10 @@ describe 'Train' do
     new_train = Train.new({'name' => 'blue line'})
     expect(Train.all).to eq []
   end
-  # it 'saves train lines' do
-  #   new_train = Train.new({'name' => 'blue line'})
-  #   new_train.save
 
+  it 'saves train lines' do
+    new_train = Train.new({'name' => 'blue line'})
+    new_train.save
+    expect(Train.all).to eq [new_train]
+  end
 end
