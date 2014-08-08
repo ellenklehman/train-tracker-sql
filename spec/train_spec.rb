@@ -8,4 +8,13 @@ describe 'Train' do
       expect(new_train).to be_an_instance_of Train
     end
   end
+
+  it 'starts with an empty array' do
+    new_train = Train.new({'name' => 'blue line'})
+    expect(Train.all).to eq []
+  end
+  # it 'saves train lines' do
+  #   new_train = Train.new({'name' => 'blue line'})
+  #   new_train.save
+
 end

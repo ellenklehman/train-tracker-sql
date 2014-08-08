@@ -5,4 +5,8 @@ attr_reader :name
     @name = attributes['name']
   end
 
+  def self.all
+    []
+  end
+
 end
