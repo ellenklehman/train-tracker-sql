@@ -25,4 +25,9 @@ class Station
   def ==(another_station)
     self.name == another_station.name
   end
+
+  def edit(edit_info)
+    @name = edit_info['name']
+    DB.exec("UPDATE train_station SET name = '#{@name}';")
+  end
 end

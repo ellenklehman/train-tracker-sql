@@ -18,4 +18,11 @@ describe 'Station' do
     new_station.save
     expect(Station.all).to eq [new_station]
   end
+
+  it 'updates station information' do
+     new_station = Station.new({'name' => 'Clackamas', 'id' => 2})
+     new_station.save
+     new_station.edit({'name' => 'Paddington'})
+     expect(new_station.name).to eq 'Paddington'
+  end
 end
