@@ -30,4 +30,8 @@ attr_reader :name, :id
     DB.exec("DELETE FROM train_line WHERE id = #{self.id};")
   end
 
+  def edit(new_name)
+    @name = new_name['name']
+    DB.exec("UPDATE train_line SET name = '#{@name}';")
+  end
 end

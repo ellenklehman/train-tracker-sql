@@ -27,4 +27,11 @@ describe 'Train' do
     new_train.delete
     expect(Train.all).to eq [another_new_train]
   end
+
+  it 'can be edited' do
+    new_train = Train.new({'name' => 'blue line', 'id' => 1})
+    new_train.save
+    new_train.edit({'name' => 'red line'})
+    expect(new_train.name).to eq('red line')
+  end
 end
